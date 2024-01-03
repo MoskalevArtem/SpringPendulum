@@ -7,8 +7,8 @@ public class Controller {
     private static double height = 600;// высота окна
     public static void pendulumDraw(double x, double y, double fi, GraphicsContext gc){
 
-        double x1 = x-50; double x2 = x+50;
-        double y1 = y-30; double y2 = y+30;
+        double x1 = x-50; double x2 = x+50;// х коорднинаты вершин груза
+        double y1 = y-30; double y2 = y+30;// у координаты вершин груза
 
         //Координаты вершин груза после поворота на угол fi
         double x1Rot = xRotate(x1,y1,x,y,fi);
@@ -23,7 +23,7 @@ public class Controller {
         double x4Rot = xRotate(x1,y2,x,y,fi);
         double y4Rot = yRotate(x1,y2,x,y,fi);
 
-        gc.strokeLine(x1Rot,y1Rot , x2Rot, y2Rot);
+        gc.strokeLine(x1Rot,y1Rot , x2Rot, y2Rot);//соединяем вершины груза
         gc.strokeLine(x2Rot,y2Rot , x3Rot, y3Rot);
         gc.strokeLine(x3Rot,y3Rot , x4Rot, y4Rot);
         gc.strokeLine(x4Rot,y4Rot , x1Rot, y1Rot);
@@ -31,7 +31,8 @@ public class Controller {
         //Координаты точки крепления пружины и груза
         double centreX = (x1Rot+x2Rot)/2;
         double centreY = (y1Rot+y2Rot)/2;
-        gc.strokeLine(width/2, height/10, centreX,centreY);
+
+        gc.strokeLine(width/2, height/10, centreX,centreY);//отрисовка пружины
         gc.strokeLine(0, height / 10, width, height / 10);//отрисовка опоры
     }
 
@@ -49,9 +50,5 @@ public class Controller {
         return width;
     }
 
-    public static double getHeight() {
-        return height;
-    }
-
-
+    public static double getHeight() {return height;}
 }
