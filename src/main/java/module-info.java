@@ -1,8 +1,8 @@
-module main.demo {
+module sample {
     requires javafx.controls;
     requires javafx.fxml;
-            
-                            
-    opens main.demo to javafx.fxml;
-    exports main.demo;
+
+
+    opens sample to javafx.fxml;
+    exports sample;
 }
